@@ -1,0 +1,398 @@
+{
+  "users": [
+    {
+      "id": "7377",
+      "login": "ola",
+      "password": "1111",
+      "roleId": 0
+    },
+    {
+      "id": "9614",
+      "login": "anton",
+      "password": "qwe123",
+      "roleId": 3
+    },
+    {
+      "login": "ivan",
+      "password": "1111",
+      "roleId": 2,
+      "id": "XsXBhCl"
+    },
+    {
+      "login": "qwerty",
+      "password": "2222",
+      "roleId": 2,
+      "id": "hqg6Jih"
+    }
+  ],
+  "roles": [
+    {
+      "id": "0",
+      "name": "Администратор"
+    },
+    {
+      "id": "1",
+      "name": "Модератор"
+    },
+    {
+      "id": "2",
+      "name": "Читатель"
+    },
+    {
+      "id": "3",
+      "name": "Гость"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "80f9",
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 2
+      },
+      "hash": "0.19348523264411388034034189331578090786933898925781"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.15865445911549769242299134930362924933433532714844",
+      "id": "cidGozH"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.87423171193745252693929614906664937734603881835938",
+      "id": "J5nn8GQ"
+    },
+    {
+      "user": {
+        "id": "9614",
+        "login": "anton",
+        "password": "qwe123",
+        "roleId": 2
+      },
+      "hash": "0.12107999794899004797343877726234495639801025390625",
+      "id": "x69byoO"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.37228337755131146735720903961919248104095458984375",
+      "id": "B7aZSuA"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.24085427132796599636321843718178570270538330078125",
+      "id": "CzMbguY"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.39785491934138272895893351233098655939102172851563",
+      "id": "V3DYZPo"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.29748817852751940904454386327415704727172851562500",
+      "id": "nhhFcNY"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.18991010477301806247396598337218165397644042968750",
+      "id": "g5-SG_5"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.72924877439472246543061828560894355177879333496094",
+      "id": "ZhPTalL"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.42742219002368520008872110338415950536727905273438",
+      "id": "ngNbwuG"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.95453025327580043324360303813591599464416503906250",
+      "id": "ujmBh58"
+    },
+    {
+      "user": {
+        "login": "qwerty",
+        "password": "2222",
+        "roleId": 2,
+        "id": "BGNHOf7"
+      },
+      "hash": "0.42842532867545957131483191915322095155715942382813",
+      "id": "BvJaHnY"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.63538349477693123468213798332726582884788513183594",
+      "id": "wadd0ZK"
+    },
+    {
+      "user": {
+        "id": "BGNHOf7",
+        "login": "qwerty",
+        "password": "2222",
+        "roleId": 2
+      },
+      "hash": "0.15436177501246439724980064056580886244773864746094",
+      "id": "ZmJ4PxL"
+    },
+    {
+      "user": {
+        "id": "BGNHOf7",
+        "login": "qwerty",
+        "password": "2222",
+        "roleId": 2
+      },
+      "hash": "0.00609375561026048728763271356001496315002441406250",
+      "id": "ynqUcjk"
+    },
+    {
+      "user": {
+        "id": "BGNHOf7",
+        "login": "qwerty",
+        "password": "2222",
+        "roleId": 2
+      },
+      "hash": "0.68183977555549946103496949945110827684402465820313",
+      "id": "Cy4RoD6"
+    },
+    {
+      "user": {
+        "id": "BGNHOf7",
+        "login": "qwerty",
+        "password": "2222",
+        "roleId": 2
+      },
+      "hash": "0.52820517302688485550277164293220266699790954589844",
+      "id": "X8UQFea"
+    },
+    {
+      "user": {
+        "id": "BGNHOf7",
+        "login": "qwerty",
+        "password": "2222",
+        "roleId": 2
+      },
+      "hash": "0.41157122369036236442241261102026328444480895996094",
+      "id": "2OZ4D63"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.70784564934801808000486289529362693428993225097656",
+      "id": "s8cEaDy"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.54849290360016333956139078509295359253883361816406",
+      "id": "lDwONf-"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.33322370428870429215351123275468125939369201660156",
+      "id": "__xHkze"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.47188320351081314285579537681769579648971557617188",
+      "id": "u1n-ES6"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.05566495003400451224706557695753872394561767578125",
+      "id": "XHxEA8t"
+    },
+    {
+      "user": {
+        "login": "qwerty",
+        "password": "2222",
+        "roleId": 2,
+        "id": "hqg6Jih"
+      },
+      "hash": "0.86925991553026049629693261522334069013595581054688",
+      "id": "mU0V7pk"
+    }
+  ],
+  "categories": [
+    {
+      "id": "001",
+      "category": "Обувь"
+    },
+    {
+      "id": "002",
+      "category": "Женская одежда"
+    },
+    {
+      "id": "003",
+      "category": "Мужская одежда"
+    },
+    {
+      "id": "004",
+      "category": "Детская одежда"
+    }
+  ],
+  "products": [
+    {
+      "id": "p00221",
+      "name": "Кроссовки Puma",
+      "image": "https://fastly.picsum.photos/id/685/280/150.jpg?hmac=JB8BzV4fkcDn4f22dt1DRtxwjfKO2YuyOS0d-N4qfEQ",
+      "price": "1000000000",
+      "categoryId": "001",
+      "description": "Удобные спортивные кроссовки"
+    },
+    {
+      "id": "p005",
+      "name": "Кроссовки Nike",
+      "image": "https://fastly.picsum.photos/id/685/280/150.jpg?hmac=JB8BzV4fkcDn4f22dt1DRtxwjfKO2YuyOS0d-N4qfEQ",
+      "price": "20000",
+      "categoryId": "001",
+      "description": "Удобные спортивные кроссовки"
+    },
+    {
+      "id": "p006",
+      "name": "Кроссовки F4",
+      "image": "https://fastly.picsum.photos/id/685/280/150.jpg?hmac=JB8BzV4fkcDn4f22dt1DRtxwjfKO2YuyOS0d-N4qfEQ",
+      "price": "500010",
+      "categoryId": "001",
+      "description": "Удобные спортивные кроссовки"
+    },
+    {
+      "id": "p002",
+      "image": "https://fastly.picsum.photos/id/685/280/150.jpg?hmac=JB8BzV4fkcDn4f22dt1DRtxwjfKO2YuyOS0d-N4qfEQ",
+      "name": "Платье Zara",
+      "price": 1000,
+      "categoryId": "002",
+      "description": "Летнее платье из лёгкой ткани"
+    },
+    {
+      "id": "p003",
+      "image": "https://fastly.picsum.photos/id/685/280/150.jpg?hmac=JB8BzV4fkcDn4f22dt1DRtxwjfKO2YuyOS0d-N4qfEQ",
+      "name": "Куртка Levi's",
+      "price": 7000,
+      "categoryId": "003",
+      "description": "Классическая джинсовая куртка"
+    },
+    {
+      "id": "p004",
+      "image": "https://fastly.picsum.photos/id/685/280/150.jpg?hmac=JB8BzV4fkcDn4f22dt1DRtxwjfKO2YuyOS0d-N4qfEQ",
+      "name": "Детский костюм Disney",
+      "price": 2500,
+      "categoryId": "004",
+      "description": "Костюм с персонажами из мультфильмов"
+    },
+    {
+      "name": "CROSS CROPP",
+      "image": "https://fastly.picsum.photos/id/329/280/150.jpg?hmac=4XsbrVU5ODhcRF9wsRDikuaj-V8709ZY9Mc1un08b6Y",
+      "price": "100200",
+      "categoryId": "001",
+      "description": "xcdscds",
+      "id": "g77WI3k"
+    },
+    {
+      "name": "CROSS ADIDAS",
+      "image": "https://fastly.picsum.photos/id/998/280/150.jpg?hmac=REBqkb7KlHjO5ba1plu56FPwuNUw2ZtTBjYZJEuM8q0",
+      "price": "11000",
+      "categoryId": "001",
+      "description": "slkd;vsk",
+      "id": "RJr4WpC"
+    },
+    {
+      "name": "CROSS ",
+      "image": "https://fastly.picsum.photos/id/919/280/150.jpg?hmac=mKVaS_KZfLx4mRKveBdZc6iMWF1dpMxTwBP1krqLOKA",
+      "price": "33233",
+      "categoryId": "001",
+      "description": "efdfebe",
+      "id": "dZQ0zoW"
+    },
+    {
+      "name": "CROSS2",
+      "image": "https://fastly.picsum.photos/id/919/280/150.jpg?hmac=mKVaS_KZfLx4mRKveBdZc6iMWF1dpMxTwBP1krqLOKA",
+      "price": "222222",
+      "categoryId": "001",
+      "description": "jhgfrew",
+      "id": "Cx5Vhdv"
+    }
+  ]
+}
