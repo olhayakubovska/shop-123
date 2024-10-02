@@ -10,12 +10,12 @@
       "id": "9614",
       "login": "anton",
       "password": "qwe123",
-      "roleId": 3
+      "roleId": 2
     },
     {
       "login": "ivan",
       "password": "1111",
-      "roleId": 2,
+      "roleId": 1,
       "id": "XsXBhCl"
     },
     {
@@ -293,6 +293,26 @@
       },
       "hash": "0.86925991553026049629693261522334069013595581054688",
       "id": "mU0V7pk"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.81468838735507786985579059546580538153648376464844",
+      "id": "6QrNjpR"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.24556237169315919821599436545511707663536071777344",
+      "id": "MjMAcIN"
     }
   ],
   "categories": [

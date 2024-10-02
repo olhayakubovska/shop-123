@@ -1,11 +1,25 @@
-export const setUpdateUserRole = (userId,newRoleId) => {
-  fetch(`http://localhost:3007/users/${userId}`, {
+// export const setUpdateUserRole = (userId, newRoleId) => {
+//   fetch(`http://localhost:3007/users/${userId}`, {
+//     method: "PATCH",
+//     headers: { "Content-Type": "application/json;charset=UTF-8" },
+//     body: JSON.stringify({
+//       roleId: newRoleId,
+//     }),
+//   })
+//     .then((role) => role.json())
+//     // .then((role) => console.log(role, "roleServer"));
+// };
+
+export const setUpdateUserRole = (userId, newRoleId) => {
+  return fetch(`http://localhost:3007/users/${userId}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json;charset=UTF-8" },
     body: JSON.stringify({
-      roleId: newRoleId
+      roleId: newRoleId,
     }),
-  });
-}
-
-
+  })
+    .then((response) => response.json()) // Возвращаем результат в виде JSON
+    .catch((error) =>
+      console.error("Ошибка при обновлении роли пользователя:", error)
+    );
+};
