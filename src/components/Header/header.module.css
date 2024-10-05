@@ -90,3 +90,10 @@ a {
   padding: 0 5px;
   font-size: 18px;
 }
+
+.users {
+  display: flex;
+  color: #000;
+  text-decoration: none;
+  margin-right: 13px;
+}

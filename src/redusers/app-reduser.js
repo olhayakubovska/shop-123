@@ -2,6 +2,12 @@ import { ACTION_TYPE } from "../api/action";
 
 const initialStateApp = {
   wasLogout: false,
+  modal: {
+    text: "",
+    onConfirm: () => {},
+    onCancel: () => {},
+    isOpen: false,
+  },
 };
 
 export const AppReduser = (state = initialStateApp, action) => {
@@ -10,6 +16,18 @@ export const AppReduser = (state = initialStateApp, action) => {
       return {
         ...state,
         wasLogout: !state.wasLogout,
+      };
+    case ACTION_TYPE.CLOSE_MODAL:
+      return initialStateApp;
+
+    case ACTION_TYPE.ON_OPEN_MODAL:
+      return {
+        ...state,
+        modal: {
+          ...state.modal,
+          ...action.payload,
+          isOpen: true,
+        },
       };
     default:
       return initialStateApp;

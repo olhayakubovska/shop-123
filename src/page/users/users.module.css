@@ -40,7 +40,19 @@
   background-color: #0056b3;
 }
 
-.h2{
-    color: #fff;
-    text-align: center;
+.h2 {
+  color: #fff;
+  text-align: center;
+}
+
+.btnUnsaved {
+  margin-left: 10px;
+  padding: 5px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  background-color: #19446f;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }

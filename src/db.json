@@ -7,22 +7,10 @@
       "roleId": 0
     },
     {
-      "id": "9614",
-      "login": "anton",
-      "password": "qwe123",
-      "roleId": 2
-    },
-    {
-      "login": "ivan",
-      "password": "1111",
-      "roleId": 1,
-      "id": "XsXBhCl"
-    },
-    {
-      "login": "qwerty",
-      "password": "2222",
+      "login": "aaa",
+      "password": "aaaa",
       "roleId": 2,
-      "id": "hqg6Jih"
+      "id": "JC5eMnw"
     }
   ],
   "roles": [
@@ -313,6 +301,16 @@
       },
       "hash": "0.24556237169315919821599436545511707663536071777344",
       "id": "MjMAcIN"
+    },
+    {
+      "user": {
+        "id": "7377",
+        "login": "ola",
+        "password": "1111",
+        "roleId": 0
+      },
+      "hash": "0.99104559741643405423872081883018836379051208496094",
+      "id": "LCsq1cf"
     }
   ],
   "categories": [
@@ -335,26 +333,18 @@
   ],
   "products": [
     {
-      "id": "p00221",
-      "name": "Кроссовки Puma",
-      "image": "https://fastly.picsum.photos/id/685/280/150.jpg?hmac=JB8BzV4fkcDn4f22dt1DRtxwjfKO2YuyOS0d-N4qfEQ",
-      "price": "1000000000",
-      "categoryId": "001",
-      "description": "Удобные спортивные кроссовки"
-    },
-    {
       "id": "p005",
       "name": "Кроссовки Nike",
       "image": "https://fastly.picsum.photos/id/685/280/150.jpg?hmac=JB8BzV4fkcDn4f22dt1DRtxwjfKO2YuyOS0d-N4qfEQ",
-      "price": "20000",
+      "price": "22222333",
       "categoryId": "001",
       "description": "Удобные спортивные кроссовки"
     },
     {
       "id": "p006",
-      "name": "Кроссовки F4",
+      "name": "Кроссовки F4wwww",
       "image": "https://fastly.picsum.photos/id/685/280/150.jpg?hmac=JB8BzV4fkcDn4f22dt1DRtxwjfKO2YuyOS0d-N4qfEQ",
-      "price": "500010",
+      "price": "5000007653ww",
       "categoryId": "001",
       "description": "Удобные спортивные кроссовки"
     },

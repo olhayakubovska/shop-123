@@ -178,9 +178,16 @@ import { deleteProductOperaton } from "../../api/operations/delete-product-opera
 import { setProductData } from "../../api/action/set-product-data";
 import { getProductsOperation } from "../../api/operations/get-products-operation";
 import { addProductOperation } from "../../api/operations/add-product-operation";
+import { setProductsActions } from "../../api/action/set-products-action";
+import { updateProductAsync } from "../../api/action/update-product-ascync";
+import { onOpenModal } from "../../api/action/on-open-modal";
+import { ACTION_TYPE } from "../../api/action";
+import { getProducts } from "../../api/fetch/get-products";
+import { Error } from "../../components/Error/Error";
+import { ROLE } from "../../constants/role";
 
 export const ProductForm = () => {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
   //   const { id, name, image, price, categoryId, description } = product;
   //   console.log(id, name, image, price, categoryId, description, "ProductForm");
@@ -204,6 +211,7 @@ export const ProductForm = () => {
   const [editedDescription, setEditedDescription] = useState("");
   const [categories, setCategories] = useState([]);
   const [flag, setFlag] = useState(true);
+  // const [isSaveButtonDisabled, setIsSaveButtonDisabled] = useState(false);
   const [error, setError] = useState(null);
 
   const session = useSelector(({ user }) => user.session);
@@ -211,12 +219,17 @@ export const ProductForm = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getProductsOperation().then((loadedData) => setProducts(loadedData));
+    // getProductsOperation().then((loadedData) => setProducts(loadedData));
+    getProductsOperation().then((loadedData) =>
+      dispatch(setProductsActions(loadedData))
+    );
 
     getCategoriesOperation().then((loadedCategories) =>
       setCategories(loadedCategories)
     );
   }, []);
+
+  const products = useSelector((state) => state.products.products);
 
   const editProduct = (ItemId) => {
     getProductOperation(ItemId).then((loadedProduct) => {
@@ -230,38 +243,91 @@ export const ProductForm = () => {
     setFlag(false);
   };
 
-  // useEffect(() => {
-  //   getProductsOperation().then((loadedProducts) =>
-  //     setProducts(loadedProducts)
-  //   );
-  // }, [products]);
+  // updateProductOperation(
+  //   id,
+  //   name,
+  //   image,
+  //   price,
+  //   category,
+  //   description,
+  //   session
+  // ).then(({ err, res }) => {
+  //   if (err) {
+  //     setError(err);
+  //   }
+  //   dispatch(setProductData(res));
+  // });
 
-  // if (
-  //   productId === "" &&
-  //   editedName === "" &&
-  //   editedPrice === "" &&
-  //   editedImage === "" &&
-  //   editedCategory === "" &&
-  //   editedDescription === ""
-  // ) {
+  // const updateProduct = (id, name, image, price, category, description) => {
+  //   dispatch(
+  //     onOpenModal({
+  //       text: "Сохранить изменения?",
+  //       onConfirm: async () => {
+  //         dispatch(
+  //           updateProductAsync(
+  //             id,
+  //             name,
+  //             image,
+  //             price,
+  //             category,
+  //             description,
+  //             session
+  //           ).then(({ err, res }) => {
+  //             dispatch(setProductData(res));
+  //             setError(err);
+  //           })
+  //         );
+
+  //         // const loadedProducts = await getProducts();
+  //         // dispatch(setProductsActions(loadedProducts));
+  //         dispatch({ type: ACTION_TYPE.CLOSE_MODAL });
+  //         setFlag(!flag);
+  //       },
+  //       onCancel: () => dispatch({ type: ACTION_TYPE.CLOSE_MODAL }),
+  //     })
+  //   );
+
+  //   setEditedName("");
+  //   setEditedPrice("");
+  //   setEditedImage("");
+  //   setEditedCategory("");
+  //   setEditedDescription("");
   //   setFlag(true);
-  // }
+  // };
 
   const updateProduct = (id, name, image, price, category, description) => {
-    updateProductOperation(
-      id,
-      name,
-      image,
-      price,
-      category,
-      description,
-      session
-    ).then(({ err, res }) => {
-      if (err) {
-        setError(err);
-      }
-      dispatch(setProductData(res));
-    });
+    dispatch(
+      onOpenModal({
+        text: "Сохранить изменения?",
+        onConfirm: async () => {
+          // Правильный вызов dispatch для updateProductAsync
+          try {
+            const { err, res } = await dispatch(
+              updateProductAsync(
+                id,
+                name,
+                image,
+                price,
+                category,
+                description,
+                session
+              )
+            );
+            dispatch(setProductData(res));
+            setError(err);
+          } catch (error) {
+            console.error("Ошибка при обновлении продукта:", error);
+            setError("Ошибка при обновлении продукта");
+          }
+
+          const loadedProducts = await getProducts();
+          dispatch(setProductsActions(loadedProducts));
+          dispatch({ type: ACTION_TYPE.CLOSE_MODAL });
+          setFlag(!flag);
+        },
+        onCancel: () => dispatch({ type: ACTION_TYPE.CLOSE_MODAL }),
+      })
+    );
 
     setEditedName("");
     setEditedPrice("");
@@ -293,10 +359,8 @@ export const ProductForm = () => {
     setEditedDescription("");
   };
 
-  // navigate("/product/edit");
   const deleteProduct = (productId) => {
     deleteProductOperaton(productId, session);
-    navigate("/product/edit");
 
     // dispatch(removeCommentAsync(requestServer, postId, id));
   };
@@ -306,13 +370,9 @@ export const ProductForm = () => {
   };
   //
 
-  const navigate = useNavigate();
-
   return (
     <>
-      {error !== null ? (
-        <div>{error}</div>
-      ) : (
+      <Error arrayAccess={[ROLE.ADMIN]} error={error}>
         <div className={styles.container}>
           <div className={styles.newProduct}>
             <div className={styles.text}>
@@ -391,11 +451,12 @@ export const ProductForm = () => {
                 description={item.description}
                 editProduct={() => editProduct(item.id)}
                 deleteProduct={() => deleteProduct(item.id)}
+                // isSaveButtonDisabled={isSaveButtonDisabled}
               />
             ))}
           </div>
         </div>
-      )}
+      </Error>
     </>
   );
 };

@@ -11,6 +11,7 @@ import { useLayoutEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "./api/action";
 import { Users } from "./page/users/users";
+import { Modal } from "./components/Modal/Modal";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,7 +40,9 @@ function App() {
         <Route path="/product/edit" element={<ProductForm />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/users" element={<Users />} />
+        <Route path="*" element={<div className={styles.error}>Такая странрица не сущевствует </div>} />
       </Routes>
+      <Modal />
     </div>
   );
 }

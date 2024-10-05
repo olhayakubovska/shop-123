@@ -12,29 +12,10 @@ export const ProductRow = ({
   description,
   editProduct,
   deleteProduct,
+  isSaveButtonDisabled
 }) => {
-  // const [selectCategory, setSelectCategory] = useState(categoryId);
-  // const [categories, setCategories] = useState([]);
-  // const [newNameProdut, setNewNameProduct] = useState(name);
-  // const [newPriceProduct, setNewPriceProduct] = useState(price);
-  // const [newNameProdut, setNewNameProduct] = useState(name);
-
-  // useEffect(() => {
-  //   categoriesOperation().then((loadedCategories) =>
-  //     setCategories(loadedCategories)
-  //   );
-  // }, []);
-
-  // const onCategoryChange = ({ target }) => {
-  //   setSelectCategory(target.value);
-  // };
-  // const updateProduct = (id, newNameProdut2) => {
-  //   console.log(id, newNameProdut2);
-  //   updateProductOperation(id, newNameProdut2);
-  // };
-
   return (
-    <div>
+    <div key={id}>
       <div className={styles.tableRow}>
         <input className={styles.nameColumn} value={name} onChange={() => {}} />
         <input
@@ -67,10 +48,18 @@ export const ProductRow = ({
           value={description}
           onChange={() => {}}
         />
-
-        <button className={styles.btn} onClick={editProduct}>
+        <button
+          className={styles.btn}
+          onClick={editProduct}
+          disabled={isSaveButtonDisabled}
+        >
           edit
         </button>
+        {/* 
+        <div className={styles.edit} onClick={editProduct}>
+          <i className="fa fa-pencil" aria-hidden="true"></i>
+        </div> */}
+
         <button className={styles.btn} onClick={deleteProduct}>
           delete
         </button>

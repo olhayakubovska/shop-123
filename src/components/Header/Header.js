@@ -13,7 +13,6 @@ export const Header = () => {
 
   const dispatch = useDispatch();
 
-
   const onLogout = () => {
     dispatch(logout(userSession));
 
@@ -55,6 +54,11 @@ export const Header = () => {
       <div className={styles.controlPanel}>
         {userRole === ROLE.ADMIN ? (
           <>
+            <Link to="/users">
+              <div className={styles.users}>
+                <i className="fa fa-users" aria-hidden="true" />
+              </div>
+            </Link>
             <Link to={`/product/edit`}>
               <div className={styles.edit}>
                 <i className="fa fa-pencil" aria-hidden="true"></i>
