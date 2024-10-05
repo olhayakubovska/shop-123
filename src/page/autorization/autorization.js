@@ -212,6 +212,7 @@ export const Authorization = () => {
       <h2 className={styles.heading}>АВТОРИЗАЦИЯ</h2>
       <form className={styles.formStyle} onSubmit={handleSubmit(onSubmit)}>
         <div>
+          {/* TODO(olhayakubovska): Login... -> Логин... */}
           <input
             placeholder="Login..."
             id="login"
@@ -221,6 +222,7 @@ export const Authorization = () => {
           />
         </div>
         <div>
+          {/* TODO(olhayakubovska): Password... -> Пароль... */}
           <input
             placeholder="Password..."
             id="password"

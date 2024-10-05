@@ -67,6 +67,7 @@ export const Registration = ({ className }) => {
       <h2 className={styles.heading}>Регистрация</h2>
       <form className={styles.formStyle} onSubmit={handleSubmit(onSubmit)}>
         <div>
+          {/* TODO(olhayakubovska): Login... -> Логин... */}
           <input
             placeholder="Login..."
             id="login"
@@ -76,6 +77,7 @@ export const Registration = ({ className }) => {
           />
         </div>
         <div>
+          {/* TODO(olhayakubovska): Password... -> Пароль... */}
           <input
             placeholder="Password..."
             id="password"
@@ -85,6 +87,7 @@ export const Registration = ({ className }) => {
           />
         </div>
         <div>
+          {/* TODO(olhayakubovska): Password... -> Повторите пароль... */}
           <input
             placeholder="Password..."
             id="passcheck"
