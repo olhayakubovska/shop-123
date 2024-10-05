@@ -73,6 +73,54 @@ export const Main = () => {
       <div className={styles.mainSection}>
         <div className={styles.categories}>
           <h2>Категории:</h2>
+          {/*
+            TODO(olhayakubovska): Categories are not versatile right now. Let's
+            add many-to-many relations for categories.
+    
+            "products": [
+              {
+                "id": "p005",
+                "name": "Кроссовки Nike",
+              },
+              {
+                "id": "p006",
+                "name": "Ботинки Timberland",
+              },
+            ]
+
+            "categories": [
+              {
+                "id": "001",
+                "category": "Обувь"
+              },
+              {
+                "id": "002",
+                "category": "Зимняя одежда"
+              }
+            ]
+
+            "categoryToProduct": [
+              {
+                "productId": "p005",
+                "categoryId": "001"
+              },
+              {
+                "productId": "p006",
+                "categoryId": "001"
+              },
+              {
+                "productId": "p006",
+                "categoryId": "002"
+              }
+            ]
+            
+            This way, "Ботинки Timberland" are in 2 categories at the same time,
+            "Обувь" and "Зимняя одежда".
+          */}
+          {/*
+            TODO(olhayakubovska): Let's add category, which will show all
+            products without filtering.
+          */}
           <div className={styles.categoryItems}>
             {categiries.map(({ id, category }) => (
               <Categories
@@ -86,7 +134,15 @@ export const Main = () => {
         <div className={styles.productsSection}>
           <div className={styles.sorting}>
             <select onChange={({ target }) => onPriceSort(target.value)}>
+              {/*
+                TODO(olhayakubovska): Sorting does not work correctly here:
+                https://images2.imgbox.com/4c/41/XSaPoIBb_o.png
+              */}
               <option value="desc">Самое дорогое</option>
+              {/*
+                TODO(olhayakubovska): Sorting does not work correctly here:
+                https://images2.imgbox.com/1e/00/6wzmkYq2_o.png
+              */}
               <option value="asc">Самое дешевое</option>
             </select>
           </div>

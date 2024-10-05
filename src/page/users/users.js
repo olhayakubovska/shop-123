@@ -77,6 +77,11 @@ export const Users = () => {
     <>
       <Error arrayAccess={[ROLE.ADMIN]} error={errorFromServer}>
       <div className={styles.container}>
+          {/*
+            TODO(olhayakubovska): This section is needed for both editing roles
+            and deleting users. I would name it "Пользователи" instead of
+            "Поменять роль".
+          */}
           <h2 className={styles.h2}>Поменять роль</h2>
           <div className={styles.tableRow}>
             {users.map((user) => (

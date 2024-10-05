@@ -24,6 +24,12 @@ export const ProductRow = ({
           onChange={() => {}}
         />
 
+        {/*
+          TODO(olhayakubovska): You can use type="number" for numeric values:
+          https://www.w3schools.com/tags/att_input_type_number.asp
+
+          Price is a numeric value.
+        */}
         <input
           className={styles.priceColumn}
           value={price}

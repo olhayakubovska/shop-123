@@ -42,6 +42,10 @@ export const Header = () => {
               className={styles.loginIcon}
             />
             <span className={styles.loginText}>{userLogin}</span>
+            {/*
+              TODO(olhayakubovska): fa-sign-in is not icon correct for logout,
+              please use fa-sign-out instead.
+            */}
             <i
               className="fa fa-sign-in"
               aria-hidden="true"
