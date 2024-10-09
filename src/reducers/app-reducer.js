@@ -2,6 +2,7 @@ import { ACTION_TYPE } from "../api/action";
 
 const initialStateApp = {
   wasLogout: false,
+  isGoBackToTheMainPage: false,
   modal: {
     text: "",
     onConfirm: () => {},
@@ -10,7 +11,7 @@ const initialStateApp = {
   },
 };
 
-export const AppReduser = (state = initialStateApp, action) => {
+export const AppReducer = (state = initialStateApp, action) => {
   switch (action.type) {
     case ACTION_TYPE.LOGOUT:
       return {
@@ -19,6 +20,12 @@ export const AppReduser = (state = initialStateApp, action) => {
       };
     case ACTION_TYPE.CLOSE_MODAL:
       return initialStateApp;
+    case "isGoBackToTheMainPage":
+      return {
+        ...state,
+        isGoBackToTheMainPage: true,
+
+      };
 
     case ACTION_TYPE.ON_OPEN_MODAL:
       return {

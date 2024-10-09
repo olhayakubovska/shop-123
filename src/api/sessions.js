@@ -1,6 +1,5 @@
-import { addSession } from "./fetch";
-import { deleteSession } from "./fetch/delete-session";
-import { getSession } from "./fetch/get-session";
+import { addSession, deleteSession, getSession } from "./fetch";
+
 
 export const sessions = {
   create(user) {

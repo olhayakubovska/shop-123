@@ -2,6 +2,7 @@ import { getUser } from "../fetch";
 import { sessions } from "../sessions";
 
 
+
 export const autorizationOperation = async (authLogin, authPassword) => {
   const user = await getUser(authLogin);
 

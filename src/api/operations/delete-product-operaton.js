@@ -1,6 +1,6 @@
-import { ROLE } from "../../constants/role";
-import { deleteProduct } from "../fetch/delete-product";
+import { deleteProduct } from "../fetch";
 import { sessions } from "../sessions";
+import { ROLE } from "../../constants";
 
 export const deleteProductOperaton = async (productId, session) => {
   const accessRoles = [ROLE.ADMIN, ROLE.MODERATOR];
@@ -15,5 +15,8 @@ export const deleteProductOperaton = async (productId, session) => {
   }
   deleteProduct(productId);
 
-  return true;
+    return {
+    err: null,
+    res: true,
+  };;
 };

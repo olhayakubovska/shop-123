@@ -1,4 +1,4 @@
-import { deleteUser } from "../fetch/delete-user";
+import { deleteUser } from "../fetch";
 
 export const removeUserOeration = async (userId) => {
   deleteUser(userId);

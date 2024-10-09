@@ -1,4 +1,4 @@
-import { getProduct } from '../fetch'
+import { getProduct } from "../fetch"
 
 export const getProductOperation = async (id) => {
     

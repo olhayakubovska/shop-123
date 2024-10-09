@@ -1,15 +1,18 @@
+import { useDispatch, useSelector } from "react-redux";
+
 import HeaderLogo from "../../image/free-icon-cymric-cat-15370486.png";
 import LoginIcon from "../../image/free-icon-bombay-15370478.png";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import styles from "./header.module.css";
-import { ROLE } from "../../constants/role";
-import { logout } from "../../api/action/logout";
+import { logout } from "../../api/action";
+import { Link } from "react-router-dom";
+import { ROLE } from "../../constants";
+
 
 export const Header = () => {
   const userLogin = useSelector(({ user }) => user.login);
   const itemsFromBasket = useSelector(({ basket }) => basket.items);
   const userSession = useSelector(({ user }) => user.session);
+ 
 
   const dispatch = useDispatch();
 
@@ -24,7 +27,7 @@ export const Header = () => {
     <div className={styles.headerContainer}>
       <div className={styles.icon}>
         <Link to="/">
-          <img src={HeaderLogo} alt="Header logo" className={styles.logo} />{" "}
+          <img src={HeaderLogo} alt="Header logo" className={styles.logo}/>
         </Link>
         <h1>SHOP</h1>
       </div>

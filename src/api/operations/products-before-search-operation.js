@@ -1,10 +1,8 @@
-import { getProductsBeforeSearch } from "../fetch";
+// import { getProductsBeforeSearch } from "../fetch";
 
-export const getProductsBeforeSearchOperation = async (searchPhrase) => {
-  // console.log(searchPhrase, "searchPhrase getProductsBeforeSearchOperation ");
-  const products = await getProductsBeforeSearch(searchPhrase);
+// export const getProductsBeforeSearchOperation = async (searchPhrase) => {
+//   const products = await getProductsBeforeSearch(searchPhrase);
 
-  // console.log(products, "getProductsBeforeSearchOperation");
 
-  return products;
-};
+//   return products;
+// };

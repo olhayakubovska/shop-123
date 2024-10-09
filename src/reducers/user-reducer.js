@@ -16,6 +16,11 @@ export const UserReducer = (state = initialStateUser, action) => {
         ...state,
         ...action.payload,
       };
+    // case "setUserRole":
+    //   return {
+    //     ...state,
+    //     ... action.payload,
+    //   };
 
     case ACTION_TYPE.LOGOUT:
       return initialStateUser;

@@ -1,5 +1,6 @@
-import { logoutOperation } from "../operations/logout";
+import { logoutOperation } from "../operations";
 import { ACTION_TYPE } from "./action-type";
+
 
 export const logout = (userSession) => {
   logoutOperation(userSession);

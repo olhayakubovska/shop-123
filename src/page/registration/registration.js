@@ -3,11 +3,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
+import styles from "./registration.module.css";
 import { regOperation } from "../../api/operations";
 import { setUser } from "../../api/action";
-import { Navigate } from "react-router-dom";
-import { ROLE } from "../../constants/role";
-import styles from "./registration.module.css";
+import { ROLE } from "../../constants";
 
 const authScheme = yup.object().shape({
   login: yup
@@ -61,7 +61,6 @@ export const Registration = ({ className }) => {
   if (roleId !== ROLE.GUEST) {
     return <Navigate to="/" />;
   }
-  console.log(roleId);
   return (
     <div className={styles.registrationContainer}>
       <h2 className={styles.heading}>Регистрация</h2>

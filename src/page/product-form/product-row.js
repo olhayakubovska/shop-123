@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import { getCategoriesOperation } from "../../api/operations";
+
 import styles from "./productRow.module.css";
-import { updateProductOperation } from "../../api/operations/update-product-operation";
 
 export const ProductRow = ({
   id,

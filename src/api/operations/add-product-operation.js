@@ -1,6 +1,7 @@
-import { addProduct } from "../fetch/add-product";
-import { ROLE } from "../../constants/role";
+import { ROLE } from "../../constants";
+import { addProduct } from "../fetch";
 import { sessions } from "../sessions";
+
 
 export const addProductOperation = async (
   name,

@@ -1,17 +1,19 @@
 import { Route, Routes } from "react-router-dom";
-import { Header } from "./components/Header";
+
 import styles from "./App.module.css";
-import { Authorization } from "./page/autorization/autorization";
-import { Registration } from "./page/registration/registration";
-import { Main } from "./main/Main";
-import { Basket } from "./page/basket/basket";
-import { ProductForm } from "./page/product-form/product-form";
-import { Product } from "./page";
-import { useLayoutEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useLayoutEffect } from "react";
 import { setUser } from "./api/action";
-import { Users } from "./page/users/users";
-import { Modal } from "./components/Modal/Modal";
+import { Header, Modal } from "./components";
+import { Main } from "./main/Main";
+import {
+  Authorization,
+  Basket,
+  Product,
+  ProductForm,
+  Registration,
+  Users,
+} from "./page";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,7 +42,12 @@ function App() {
         <Route path="/product/edit" element={<ProductForm />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/users" element={<Users />} />
-        <Route path="*" element={<div className={styles.error}>Такая странрица не сущевствует </div>} />
+        <Route
+          path="*"
+          element={
+            <div className={styles.error}>Такая странрица не сущевствует </div>
+          }
+        />
       </Routes>
       <Modal />
     </div>

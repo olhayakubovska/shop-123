@@ -1,8 +1,8 @@
-import { getRoles } from "../fetch/get-roles"
+import { getRoles } from "../fetch"
 
 export const getRolesOperation = async () => {
 const roles = await getRoles()
-console.log(roles,'rolesoperation')
+// console.log(roles,"roles op")
   return roles
 }
 

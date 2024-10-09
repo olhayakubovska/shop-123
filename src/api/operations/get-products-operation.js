@@ -1,7 +1,7 @@
-import { getProducts } from "../fetch/get-products";
+import { getProducts } from "../fetch";
 
-export const getProductsOperation = async () => {
-  const products = await getProducts();
+export const getProductsOperation = async (searchPhrase) => {
+  const products = await getProducts(searchPhrase);
 
   return products;
 };

@@ -1,8 +1,4 @@
-// import { updateProductOperation } from "../operations/update-product-operation";
 
-import { ROLE } from "../../constants/role";
-import { setUpdateProduct } from "../fetch";
-import { sessions } from "../sessions";
 
 // export const updateProductAsync =
 //   (id, name, image, price, category, description, session) =>
@@ -17,6 +13,10 @@ import { sessions } from "../sessions";
 //       session
 //     );
 //   };
+
+import { ROLE } from "../../constants";
+import { setUpdateProduct } from "../fetch";
+import { sessions } from "../sessions";
 
 export const updateProductAsync =
   (id, name, image, price, category, description, session) =>
