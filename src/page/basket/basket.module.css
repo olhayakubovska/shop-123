@@ -8,7 +8,12 @@
 }
 
 .productImage {
-  margin-right: 15px;
+   margin-right: 15px;
+    max-width: 100%;  /* Картинка не будет выходить за пределы контейнера */
+    max-height: 300px;  /* Ограничение по высоте */
+    height: auto;      /* Сохранение пропорций */
+  padding: 5px;
+  
 }
 
 .productInfo {

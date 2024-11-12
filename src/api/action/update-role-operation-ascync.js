@@ -4,7 +4,7 @@ import { sessions } from "../sessions";
 
 export const updateRoleAsync = (userId, newRoleId, userSession) => async (dispatch) => {
   // const accessRoles = [ROLE.ADMIN, ROLE.MODERATOR];
-console.log(userId, newRoleId, userSession,"2345")
+// console.log(userId, newRoleId, userSession,"2345")
   // Проверка доступа пользователя
   // const access = await sessions.access(userSession, accessRoles);
 
@@ -17,7 +17,7 @@ console.log(userId, newRoleId, userSession,"2345")
 
   // Обновление роли пользователя
   const newRole = await setUpdateUserRole(userId, newRoleId);
-  console.log(newRole, "newRole op");
+  // console.log(newRole, "newRole op");
 
   return {
     err: null,

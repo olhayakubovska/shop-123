@@ -1,7 +1,7 @@
 import { getUserProductsFromBasket } from "../fetch/get-user-products";
 
-export const getUserProductFromBasketOperation = async (userId) => {
+export const getUserProductsFromBasketOperation = async (userId) => {
   const userProducts = await getUserProductsFromBasket(userId);
-  console.log(userProducts, "userProducts");
+  // console.log(userProducts, "продукты юзера");
   return userProducts;
 };

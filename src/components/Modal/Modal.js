@@ -7,7 +7,7 @@ export const Modal = () => {
   const text = useSelector(({app}) => app.modal.text);
   const isOpen = useSelector(({app}) => app.modal.isOpen);
 //   console.log(onConfirm, "onConfirm");
-  console.log(text, "text");
+  // console.log(text, "text");
   if (!isOpen) {
     return;
   }

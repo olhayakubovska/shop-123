@@ -1,19 +1,20 @@
 export const getUserProductsFromBasket = async (userId) => {
   try {
-    const response = await fetch(`http://localhost:3007/basket`); // Запрос на сервер для получения всех элементов корзины
-
+    const response = await fetch(`http://localhost:3007/basket`); 
     if (!response.ok) {
       throw new Error("Ошибка при получении корзины");
     }
 
-    const cartItems = await response.json(); // Преобразуем ответ в JSON
+    const cartItems = await response.json();   
+    //  console.log(cartItems, "все продукты ");
+
     // Фильтруем элементы по userId
     const userCartItems = cartItems.filter((item) => item.userId === userId);
-    console.log(cartItems, "cartItems");
-    
-    return userCartItems; // Возвращаем товары из корзины пользователя
+        // console.log(userCartItems, "продукты из корзины юзера")
+
+    return userCartItems; 
   } catch (error) {
     console.error("Ошибка:", error);
-    throw error; // Пробрасываем ошибку выше
+    throw error; 
   }
 };

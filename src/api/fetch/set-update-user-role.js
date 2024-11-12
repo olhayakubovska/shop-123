@@ -26,7 +26,7 @@ export const setUpdateUserRole = async (userId, newRoleId) => {
 
     const updatedUserRole = await response.json();
 
-console.log(updatedUserRole,"updatedUserRole fetch")
+// console.log(updatedUserRole,"updatedUserRole fetch")
 
     return updatedUserRole;
   } catch (error) {

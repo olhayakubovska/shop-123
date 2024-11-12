@@ -63,211 +63,141 @@
   ],
   "sessions": [
     {
+      "id": "a25d",
       "user": {
         "id": "7377",
         "login": "ola",
         "password": "1111",
         "roleId": 0
       },
-      "hash": "0.18307493554551146353048807213781401515007019042969",
-      "id": 1
+      "hash": "0.37655068677528147347288722812663763761520385742188"
     },
     {
+      "id": "7657",
       "user": {
         "id": "7377",
         "login": "ola",
         "password": "1111",
         "roleId": 0
       },
-      "hash": "0.63491082694409484155073641886701807379722595214844",
-      "id": 2
-    },
-    {
-      "user": {
-        "id": "7377",
-        "login": "ola",
-        "password": "1111",
-        "roleId": 0
-      },
-      "hash": "0.92416364609062506829673111496958881616592407226563",
-      "id": 3
-    },
-    {
-      "user": {
-        "id": "7377",
-        "login": "ola",
-        "password": "1111",
-        "roleId": 0
-      },
-      "hash": "0.49444847262081670358213614235864952206611633300781",
-      "id": 4
-    },
-    {
-      "user": {
-        "id": "7377",
-        "login": "ola",
-        "password": "1111",
-        "roleId": 0
-      },
-      "hash": "0.43633981663148890817183200852014124393463134765625",
-      "id": 5
-    },
-    {
-      "user": {
-        "id": "7377",
-        "login": "ola",
-        "password": "1111",
-        "roleId": 0
-      },
-      "hash": "0.93353957773158247057665448664920404553413391113281",
-      "id": 6
-    },
-    {
-      "user": {
-        "id": "7377",
-        "login": "ola",
-        "password": "1111",
-        "roleId": 0
-      },
-      "hash": "0.65637984141477700994471433659782633185386657714844",
-      "id": 7
-    },
-    {
-      "user": {
-        "id": "7377",
-        "login": "ola",
-        "password": "1111",
-        "roleId": 0
-      },
-      "hash": "0.02742665217149364842441627843072637915611267089844",
-      "id": 8
-    },
-    {
-      "user": {
-        "id": "7377",
-        "login": "ola",
-        "password": "1111",
-        "roleId": 0
-      },
-      "hash": "0.31162443696266151071938566019525751471519470214844",
-      "id": 9
+      "hash": "0.14425302468527512189666595077142119407653808593750"
     }
   ],
   "categoryToProduct": [
     {
       "categoryId": "003",
       "productId": "Cf0_6ov",
-      "id": 8
+      "id": "8"
     },
     {
       "categoryId": "003",
       "productId": "hJxIYRl",
-      "id": 9
+      "id": "9"
     },
     {
       "categoryId": "003",
       "productId": "b3U-q3h",
-      "id": 10
+      "id": "10"
     },
     {
       "categoryId": "003",
       "productId": "hmtSGSp",
-      "id": 11
+      "id": "11"
     },
     {
       "categoryId": "003",
       "productId": "TQhKTC4",
-      "id": 12
+      "id": "12"
     },
     {
       "categoryId": "002",
       "productId": "xCQVrFX",
-      "id": 13
+      "id": "13"
     },
     {
       "categoryId": "002",
       "productId": "f1qpZyj",
-      "id": 15
+      "id": "15"
     },
     {
       "categoryId": "003",
       "productId": "J0u04kk",
-      "id": 16
+      "id": "16"
     },
     {
       "categoryId": "002",
       "productId": "OSfOOUm",
-      "id": 17
+      "id": "17"
     },
     {
       "categoryId": "002",
       "productId": "IdrOLuq",
-      "id": 18
+      "id": "18"
     },
     {
       "categoryId": "002",
       "productId": "sXG2W3u",
-      "id": 19
+      "id": "19"
     },
     {
       "categoryId": "001",
       "productId": "T5XjtZ5",
-      "id": 20
+      "id": "20"
     },
     {
       "categoryId": "001",
       "productId": "EWTptxa",
-      "id": 21
+      "id": "21"
     },
     {
       "categoryId": "001",
       "productId": "ZX7E3xB",
-      "id": 22
+      "id": "22"
     },
     {
       "categoryId": "001",
       "productId": "4DeXEtZ",
-      "id": 23
+      "id": "23"
     },
     {
       "categoryId": "004",
       "productId": "17FBU5E",
-      "id": 24
+      "id": "24"
     },
     {
       "categoryId": "004",
       "productId": "o9XLuIG",
-      "id": 25
+      "id": "25"
     },
     {
       "categoryId": "004",
       "productId": "xjUO24G",
-      "id": 26
+      "id": "26"
     },
     {
       "categoryId": "004",
       "productId": "tA5Yypa",
-      "id": 27
+      "id": "27"
     },
     {
       "categoryId": "002",
       "productId": "to2B-Jq",
-      "id": 28
+      "id": "28"
     },
     {
       "categoryId": "002",
       "productId": "x6eOuZd",
-      "id": 29
+      "id": "29"
     },
     {
       "categoryId": "002",
       "productId": "QCf-1V_",
-      "id": 30
+      "id": "30"
     },
     {
       "categoryId": "",
       "productId": "TUa8Qef",
-      "id": 31
+      "id": "31"
     }
   ],
   "products": [
@@ -458,44 +388,49 @@
   ],
   "basket": [
     {
+      "id": "1d1e",
+      "userId": "EYOrV6k",
+      "productId": "EWTptxa",
+      "productImage": "https://img.kwcdn.com/product/fancy/2f33dd76-c377-4b27-83b4-67e21c628962.jpg?imageView2/2/w/800/q/70/format/webp",
+      "productName": "Womens Shoes",
+      "productPrice": "235",
+      "productDescription": "Women's Platform Sneakers, Casual Lace Up Outdoor Shoes, Comfortable Low Top Sport Shoes"
+    },
+    {
+      "id": "79e0",
       "userId": "7377",
       "productId": "Cf0_6ov",
-      "id": 1
+      "productImage": "https://img.kwcdn.com/product/fancy/96df86ad-a2e4-4caa-905e-71f3957beef3.jpg?imageView2/2/w/800/q/70/format/webp",
+      "productName": "Men's Hoodies 1 & Sweatshirts",
+      "productPrice": "250",
+      "productDescription": "Men's Mountain Embroidery Graphic Print Sweatshirt, Casual Half Zipper Stand Collar Long Sleeve Top For Outdoor"
     },
     {
+      "id": "bae1",
       "userId": "7377",
-      "productId": "b3U-q3h",
-      "id": 2
+      "productId": "hJxIYRl",
+      "productImage": "https://img.kwcdn.com/product/fancy/2b0a51c7-7c38-46dc-8dc6-dc0ea7544c20.jpg?imageView2/2/w/800/q/70/format/webp",
+      "productName": "Men's sweater",
+      "productPrice": "130",
+      "productDescription": "Men's Script Letter Print Fleece Sweatshirt, Warm And Thick Crew Neck And Long Sleeve Top For Winter And Fall"
     },
     {
+      "id": "090e",
       "userId": "7377",
-      "productId": "b3U-q3h",
-      "id": 3
+      "productId": "hJxIYRl",
+      "productImage": "https://img.kwcdn.com/product/fancy/2b0a51c7-7c38-46dc-8dc6-dc0ea7544c20.jpg?imageView2/2/w/800/q/70/format/webp",
+      "productName": "Men's sweater",
+      "productPrice": "130",
+      "productDescription": "Men's Script Letter Print Fleece Sweatshirt, Warm And Thick Crew Neck And Long Sleeve Top For Winter And Fall"
     },
     {
-      "userId": "7377",
-      "productId": "b3U-q3h",
-      "id": 4
-    },
-    {
-      "userId": "7377",
-      "productId": "Cf0_6ov",
-      "id": 5
-    },
-    {
-      "userId": "7377",
-      "productId": "Cf0_6ov",
-      "id": 6
-    },
-    {
+      "id": "39c7",
       "userId": "7377",
       "productId": "Cf0_6ov",
-      "id": 7
-    },
-    {
-      "userId": "7377",
-      "productId": "Cf0_6ov",
-      "id": 8
+      "productImage": "https://img.kwcdn.com/product/fancy/96df86ad-a2e4-4caa-905e-71f3957beef3.jpg?imageView2/2/w/800/q/70/format/webp",
+      "productName": "Men's Hoodies 1 & Sweatshirts",
+      "productPrice": "250",
+      "productDescription": "Men's Mountain Embroidery Graphic Print Sweatshirt, Casual Half Zipper Stand Collar Long Sleeve Top For Outdoor"
     }
   ]
 }

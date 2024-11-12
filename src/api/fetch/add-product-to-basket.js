@@ -1,4 +1,4 @@
-export const addProductToBasket = async (userId, productId) => {
+export const addProductToBasket = async (userId, productId,productImage,productName,productPrice,productDescription) => {
   try {
     const response = await fetch("http://localhost:3007/basket", {
       method: "POST",
@@ -6,6 +6,10 @@ export const addProductToBasket = async (userId, productId) => {
       body: JSON.stringify({
         userId: userId,
         productId: productId,
+        productImage,
+        productName,
+        productPrice,
+        productDescription
       }),
     });
 
@@ -14,7 +18,7 @@ export const addProductToBasket = async (userId, productId) => {
     }
 
     const card = await response.json();
-    console.log(card, 'card123')
+    // console.log(card, 'card123')
     return card;
   } catch (error) {
     console.log(error);
