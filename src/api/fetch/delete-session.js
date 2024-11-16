@@ -1,4 +1,5 @@
 export const deleteSession = async (sesssionId) => {
+  console.log(sesssionId,"sesssionIdFetch")
   try {
     const response = await fetch(
       `http://localhost:3007/sessions/${sesssionId}`,
@@ -7,7 +8,7 @@ export const deleteSession = async (sesssionId) => {
       }
     );
     if (!response.ok) {
-      throw new Error(`Ошибка при удалении продукта: ${response.statusText}`);
+      throw new Error(`Ошибка при удалении сессии: ${response.statusText}`);
     }
 
     return response;

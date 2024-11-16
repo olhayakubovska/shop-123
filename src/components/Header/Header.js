@@ -105,39 +105,35 @@ import styles from "./header.module.css";
 import { logout } from "../../api/action";
 import { Link } from "react-router-dom";
 import { ROLE } from "../../constants";
+import { getProductOperation } from "../../api/operations";
+import { getUserProductsFromBasketOperation } from "../../api/operations/get-user-products-from-basket-operation";
 
 export const Header = () => {
   const userLogin = useSelector(({ user }) => user.login);
-  const userId = useSelector(({ user }) => user.id);
-  const itemsFromBasket = useSelector(({ basket }) => basket.baskets);
-  const userBasket = itemsFromBasket.find((basket) => basket.userId === userId);
-  const lengthItems = userBasket ? userBasket.items.length : 0;
-
-  const [savedLengthItems, setSavedLengthItems] = useState(lengthItems);
-
-  useEffect(() => {
-    // При монтировании компонента восстановить данные из localStorage
-    // Проверяем длину каждого объекта или массива, если это массивы
-    const basketItems = JSON.parse(localStorage.getItem("basketItems"));
-    const basketItemsLength = basketItems ? Object.keys(basketItems).length : 0; // Длина объекта, если он существует
-    setSavedLengthItems(parseInt(basketItemsLength, 10));
-  }, []);
-
-  useEffect(() => {
-    // Обновлять localStorage при изменении количества товаров в корзине
-    localStorage.setItem("basketLength", lengthItems);
-    setSavedLengthItems(lengthItems); // Обновляем состояние сохраненного количества товаров
-  }, [lengthItems]);
-
+  const userIdSelector = useSelector(({ user }) => user.id);
   const userSession = useSelector(({ user }) => user.session);
+  const userRole = useSelector(({ user }) => user.roleId);
+
   const dispatch = useDispatch();
+
+  const [userProducts, setUserProducts] = useState([]);
+  // const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // // let a = currentCart.filter((item) => item.userId === userIdSelector);
+  // let cartLength = currentCart.length;
+  // console.log(cartLength, "cartLength");
+  getUserProductsFromBasketOperation(userIdSelector).then(
+    (userProductsFromServer) => {
+      // console.log(userProducts,"компонент")
+      setUserProducts(userProductsFromServer);
+    }
+  );
+  const cartLength = userProducts.length;
 
   const onLogout = () => {
     dispatch(logout(userSession));
     sessionStorage.removeItem("userData");
   };
-
-  const userRole = useSelector(({ user }) => user.roleId);
 
   return (
     <div className={styles.headerContainer}>
@@ -186,17 +182,19 @@ export const Header = () => {
             <Link to="/basket">
               <div className={styles.basket}>
                 <i className="fa fa-shopping-bag" aria-hidden="true"></i>
-                <div className={styles.lenghtItems}>{savedLengthItems}</div>
+                <div className={styles.lenghtItems}>{cartLength}</div>
               </div>
             </Link>
           </>
         ) : (
-          <Link to="/basket">
-            <div className={styles.basket}>
-              <i className="fa fa-shopping-bag" aria-hidden="true"></i>
-              <div className={styles.lenghtItems}>{savedLengthItems}</div>
-            </div>
-          </Link>
+          userRole !== ROLE.GUEST && (
+            <Link to="/basket">
+              <div className={styles.basket}>
+                <i className="fa fa-shopping-bag" aria-hidden="true"></i>
+                <div className={styles.lenghtItems}>{cartLength}</div>
+              </div>
+            </Link>
+          )
         )}
       </div>
     </div>

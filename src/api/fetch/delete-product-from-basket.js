@@ -5,6 +5,6 @@ export const deleteProductFromBasket = (productId) =>{
         if (!response.ok) {
           throw new Error("Ошибка при удалении продукта");
         }
-        return response.json(); // Предполагаем, что сервер возвращает обновленный список продуктов
+        return response.json();
       })
     };

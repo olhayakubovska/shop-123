@@ -189,83 +189,106 @@
 import { useEffect, useState } from "react";
 
 import styles from "./main.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { getCategoriesOperation, getProductsFromServerByCategoryOperation, getProductsOperation } from "../api/operations";
+import { ReactReduxContext, useDispatch, useSelector } from "react-redux";
+import {
+  getCategoriesOperation,
+  getProductsFromServerByCategoryOperation,
+  getProductsOperation,
+} from "../api/operations";
 import { setProductsAction } from "../api/action";
 import { getSortedProducts } from "../api/fetch";
 import { Categories, Search } from "../components";
 import { ProductsCards } from "../page";
-
+import { getProductsByCatrgoryAfterSorting } from "../api/fetch/get-products-by-category-after-sorting";
+// import { getProductsByCategoryAfterSorting } from "../api/operations/get-products-by-category-after-sorting-operation";
 
 export const Main = () => {
-  const [categiries, setCategories] = useState([]);
-  const [productsBeforeSearch, setProductsBeforeSearch] = useState([]);
-  const [filteredProductsByCategory, setfilteredProductsByCategory] = useState(
-    []
-  );
-
+  const [categories, setCategories] = useState([]);
+  // const [productsBeforeSearch, setProductsBeforeSearch] = useState([]);
+  // const [productsBeforeSearchByCategoryId, setProductsBeforeSearchByCategoryId] = useState([]);
+  // const [productsByCategory, setFilteredProductsByCategory] = useState([]);
   const [searchPhrase, setSearchPhrase] = useState("");
-
-  const productFromRedax = useSelector(({ products }) => products.products);
-
+  const [selectedCategoryId, setSelectCategoryId] = useState("");
+  const [selectedSort, setSelectSort] = useState("desc");
+  const productsFromRedax = useSelector(({ products }) => products.products);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    getProductsOperation().then((loadedProducts) => {
-      dispatch(setProductsAction(loadedProducts));
-    });
-    getProductsOperation(searchPhrase).then((fetchedProducts) => {
-      setProductsBeforeSearch(fetchedProducts);
-    });
-  }, [dispatch, searchPhrase]);
 
   useEffect(() => {
     getCategoriesOperation().then((fetchedCategories) => {
       setCategories(fetchedCategories);
     });
 
+    getProductsOperation().then((loadedProducts) => {
+      dispatch(setProductsAction(loadedProducts));
+    });
     // getProductsBeforeSearchOperation(searchPhrase).then((fetchedProducts) => {
     //   setProductsBeforeSearch(fetchedProducts);
     // });
   }, []);
 
-  const [selectCategoryId, setSelectCategoryId] = useState("");
 
+
+  // Функция для выбора категории
   const chooseCategory = (categoryId) => {
     setSelectCategoryId(categoryId);
-    getProductsFromServerByCategoryOperation(categoryId).then(
-      (loadedProducts) => {
-        const productIds = loadedProducts.map((p) => p.productId);
-        const filteredProducts = productFromRedax.filter((p) =>
-          productIds.includes(p.id)
-        );
-
-        setfilteredProductsByCategory(filteredProducts);
-      }
-    );
   };
 
-  const [selestProductByPrice, setSelectProductByPrice] = useState([]);
-  const [selectType, setSelectType] = useState("");
-
-  const onPriceSort = (type) => {
-    setSelectType(type);
-    getSortedProducts("price", type).then((loadedProducts) => {  
-      setSelectProductByPrice(loadedProducts);
-    });
+  const onSort = (type) => {
+    setSelectSort(type)
   };
 
   const productsToDisplay = () => {
-    if (searchPhrase) {
-      return productsBeforeSearch;
-    } else if (selectCategoryId) {
-      return filteredProductsByCategory;
-    } else if (selectType) {
-      return selestProductByPrice;
-    } else {
-      return productFromRedax;
-    }
-  };
+    let products = productsFromRedax
+    
+    products = products.filter((product) => {
+      return selectedCategoryId ? product.categoryId === selectedCategoryId : true;
+    })
+    
+    products = products.filter((product) => {
+      return searchPhrase ? product.name.toLowerCase().includes(searchPhrase.toLowerCase()) : true;
+    })
+    
+    products = products.sort((a, b) => {
+      if (selectedSort === "asc") {
+        return a.price - b.price;
+      } else {
+        return b.price - a.price;
+      }
+    });
+
+    return products;
+
+
+    // if (searchPhrase) {
+    //   if (selectCategoryId) {
+    //     if (selectType) {
+    //       return filteredByPhrasefilteredByCategorySortedByType;
+    //     } else {
+    //       return filteredByPhrasefilteredByCategoryUnsortedByType;
+    //     }
+    //   } else {
+    //     if (selectType) {
+    //       return filteredByPhraseUnfilteredByCategorySortedByType;
+    //     } else {
+    //       return filteredByPhraseUnfilteredByCategoryUnsortedByType;
+    //     }
+    //   }
+    // } else {
+    //   if (selectCategoryId) {
+    //     if (selectType) {
+    //       return unfilteredByPhrasefilteredByCategorySortedByType;
+    //     } else {
+    //       return unfilteredByPhrasefilteredByCategoryUnsortedByType;
+    //     }
+    //   } else {
+    //     if (selectType) {
+    //       return unfilteredByPhraseUnfilteredByCategorySortedByType;
+    //     } else {
+    //       return filteredByPhraseUnfilteredByCategoryUnsortedByType;
+    //     }
+    //   }
+    // }
+  }
 
   return (
     <div className={styles.main}>
@@ -274,9 +297,8 @@ export const Main = () => {
       <div className={styles.mainSection}>
         <div className={styles.categories}>
           <h2>Категории:</h2>
-
           <div className={styles.categoryItems}>
-            {categiries.map(({ id, category }) => (
+            {categories.map(({ id, category }) => (
               <Categories
                 category={category}
                 key={id}
@@ -285,14 +307,15 @@ export const Main = () => {
             ))}
           </div>
         </div>
+
         <div className={styles.productsSection}>
           <div className={styles.sorting}>
-            <select onChange={({ target }) => onPriceSort(target.value)}>
+            <select onChange={({ target }) => onSort(target.value)}>
               <option value="desc">Самое дорогое</option>
-
               <option value="asc">Самое дешевое</option>
             </select>
           </div>
+
           <div className={styles.products}>
             {productsToDisplay().map(
               ({ id, name, image, price, categoryId, description }) => (
@@ -307,36 +330,187 @@ export const Main = () => {
                 />
               )
             )}
-            {/* {productsBeforeSearch.map(
-              ({ id, name, image, price, categoryId, description }) => (
-                <ProductsCards
-                  key={id}
-                  id={id}
-                  name={name}
-                  image={image}
-                  price={price}
-                  categoryId={categoryId}
-                  description={description}
-                />
-              )
-            )}
-
-            {filteredProductsByCategory.map(
-              ({ id, name, image, price, categoryId, description }) => (
-                <ProductsCards
-                  key={id}
-                  id={id}
-                  name={name}
-                  image={image}
-                  price={price}
-                  categoryId={categoryId}
-                  description={description}
-                />
-              )
-            )} */}
           </div>
+          {/* <div>
+            {selectedSort}
+          </div>
+          <div>
+            {selectedCategoryId}
+          </div>
+          <div>
+            {searchPhrase}
+          </div> */}
         </div>
       </div>
     </div>
   );
 };
+
+// export const Main = () => {
+//   const [categiries, setCategories] = useState([]);
+//   const [productsBeforeSearch, setProductsBeforeSearch] = useState([]);
+//   const [
+//     productsBeforeSearchByCategoryId,
+//     setProductsBeforeSearchByCategoryId,
+//   ] = useState([]);
+
+//   const [filteredProductsByCategory, setfilteredProductsByCategory] = useState(
+//     []
+//   );
+
+//   const [searchPhrase, setSearchPhrase] = useState("");
+
+//   const productFromRedax = useSelector(({ products }) => products.products);
+
+//   const dispatch = useDispatch();
+
+//   useEffect(() => {
+//     getProductsOperation().then((loadedProducts) => {
+//       dispatch(setProductsAction(loadedProducts));
+//     });
+//     getProductsOperation(searchPhrase).then((fetchedProducts) => {
+//       setProductsBeforeSearch(fetchedProducts);
+//     });
+//   }, [dispatch, searchPhrase]);
+
+//   useEffect(() => {
+//     getCategoriesOperation().then((fetchedCategories) => {
+//       setCategories(fetchedCategories);
+//     });
+//   }, []);
+
+//   const [selectCategoryId, setSelectCategoryId] = useState("");
+
+//   const chooseCategory = (categoryId) => {
+//     // setSelectCategoryId(categoryId);
+//     // getProductsFromServerByCategoryOperation(categoryId).then(
+//     //   (loadedProducts) => {
+//     //     const productIds = loadedProducts.map((p) => p.productId);
+//     //     const filteredProducts = productFromRedax.filter((p) =>
+//     //       productIds.includes(p.id)
+//     //     );
+
+//     //     setfilteredProductsByCategory(filteredProducts);
+//     //   }
+//     // );
+//     setSelectCategoryId(categoryId);
+//     if (searchPhrase) {
+//       getProductsByCatrgoryAfterSorting(searchPhrase, categoryId).then(
+//         (loadedProducts) => {
+//           setProductsBeforeSearchByCategoryId(loadedProducts);
+//           console.log(
+//             productsBeforeSearchByCategoryId,categoryId,
+//             "продукты по категории после сортировки"
+//           );
+
+//         }
+//       );
+//     } else {
+//       getProductsFromServerByCategoryOperation(categoryId).then(
+//         (loadedProducts) => {
+//           const productIds = loadedProducts.map((p) => p.productId);
+//           const filteredProducts = productFromRedax.filter((p) =>
+//             productIds.includes(p.id)
+//           );
+
+//           setfilteredProductsByCategory(filteredProducts);
+//         }
+//       );
+//     }
+//   };
+
+//   const [selestProductByPrice, setSelectProductByPrice] = useState([]);
+//   const [selectType, setSelectType] = useState("");
+
+//   const onPriceSort = (type) => {
+//     setSelectType(type);
+//     getSortedProducts("price", type).then((loadedProducts) => {
+//       setSelectProductByPrice(loadedProducts);
+//     });
+//   };
+
+//   const productsToDisplay = () => {
+//     if (searchPhrase) {
+//       return productsBeforeSearch;
+//     } else if (selectCategoryId) {
+//       return filteredProductsByCategory;
+//     } else if (selectType) {
+//       return selestProductByPrice;
+//     } else {
+//       return productFromRedax;
+//     }
+//   };
+
+//   return (
+//     <div className={styles.main}>
+//       <Search setSearchPhrase={setSearchPhrase} searchPhrase={searchPhrase} />
+
+//       <div className={styles.mainSection}>
+//         <div className={styles.categories}>
+//           <h2>Категории:</h2>
+
+//           <div className={styles.categoryItems}>
+//             {categiries.map(({ id, category }) => (
+//               <Categories
+//                 category={category}
+//                 key={id}
+//                 onClick={() => chooseCategory(id)}
+//               />
+//             ))}
+//           </div>
+//         </div>
+//         <div className={styles.productsSection}>
+//           <div className={styles.sorting}>
+//             <select onChange={({ target }) => onPriceSort(target.value)}>
+//               <option value="desc">Самое дорогое</option>
+
+//               <option value="asc">Самое дешевое</option>
+//             </select>
+//           </div>
+//           <div className={styles.products}>
+//             {productsToDisplay().map(
+//               ({ id, name, image, price, categoryId, description }) => (
+//                 <ProductsCards
+//                   key={id}
+//                   id={id}
+//                   name={name}
+//                   image={image}
+//                   price={price}
+//                   categoryId={categoryId}
+//                   description={description}
+//                 />
+//               )
+//             )}
+//             {/* {productsBeforeSearch.map(
+//               ({ id, name, image, price, categoryId, description }) => (
+//                 <ProductsCards
+//                   key={id}
+//                   id={id}
+//                   name={name}
+//                   image={image}
+//                   price={price}
+//                   categoryId={categoryId}
+//                   description={description}
+//                 />
+//               )
+//             )}
+
+//             {filteredProductsByCategory.map(
+//               ({ id, name, image, price, categoryId, description }) => (
+//                 <ProductsCards
+//                   key={id}
+//                   id={id}
+//                   name={name}
+//                   image={image}
+//                   price={price}
+//                   categoryId={categoryId}
+//                   description={description}
+//                 />
+//               )
+//             )} */}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
